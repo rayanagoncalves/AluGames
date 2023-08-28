@@ -15,9 +15,16 @@ fun main() {
     val json = response.body()
     println(json)
 
-    val meuJogo = Jogo()
-    meuJogo.titulo = "Batman: Arkham Asylum Game of the Year Edition"
-    meuJogo.capa = "https:\\/\\/cdn.cloudflare.steamstatic.com\\/steam\\/apps\\/35140\\/capsule_sm_120.jpg?t=1681938587"
+    val meuJogo = Jogo(
+        "Batman: Arkham Asylum Game of the Year Edition",
+        "https:\\/\\/cdn.cloudflare.steamstatic.com\\/steam\\/apps\\/35140\\/capsule_sm_120.jpg?t=1681938587")
 
     println(meuJogo)
+
+    val novoJogo = Jogo(
+        capa = "https:\\/\\/cdn.cloudflare.steamstatic.com\\/steam\\/apps\\/35140\\/capsule_sm_120.jpg?t=1681938587",
+        titulo = "Batman: Arkham Asylum Game of the Year Edition") // forma diferente de passar os atributos para o construtor, sem seguir a ordem na qual foi declarada na classe Jogo.
+
+    println(novoJogo)
+
 }
