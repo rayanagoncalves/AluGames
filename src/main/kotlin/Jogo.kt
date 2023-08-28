@@ -1,4 +1,7 @@
-class Jogo(val titulo: String, val capa: String) { // construtor
+import com.google.gson.annotations.SerializedName
+
+class Jogo(@SerializedName("title") val titulo: String,
+           @SerializedName("thumb") val capa: String) { // construtor
     val descricao = ""
 
     override fun toString(): String {
