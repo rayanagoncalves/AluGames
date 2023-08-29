@@ -18,16 +18,52 @@ fun main() {
     val response = client
         .send(request, BodyHandlers.ofString())
 
-    try {
+//    try {
+//        val json = response.body()
+//        println(json)
+//
+//        val gson = Gson()
+//        val meuInfoJogo = gson.fromJson(json, InfoJogo::class.java)
+//
+//        val meuJogo = Jogo(meuInfoJogo.info.title, meuInfoJogo.info.thumb)
+//        println(meuJogo)
+//    } catch(ex: Exception) {
+//        println("Jogo inexistente. Tente outro id.")
+//    }
+
+    var meuJogo: Jogo? = null
+
+    val resultado = runCatching {
         val json = response.body()
-        println(json)
+     //   println(json)
 
         val gson = Gson()
         val meuInfoJogo = gson.fromJson(json, InfoJogo::class.java)
 
-        val meuJogo = Jogo(meuInfoJogo.info.title, meuInfoJogo.info.thumb)
-        println(meuJogo)
-    } catch(ex: Exception) {
+        meuJogo = Jogo(meuInfoJogo.info.title, meuInfoJogo.info.thumb)
+    }
+
+    resultado.onFailure {
         println("Jogo inexistente. Tente outro id.")
     }
+
+    resultado.onSuccess {
+        println("Deseja inserir uma descrição personalizada? S/N")
+        val opcao = leitura.nextLine()
+
+        if(opcao.equals("s", true)) {
+            println("Insira a descrição personalizada para o jogo:")
+            val descricaoPersonalizada = leitura.nextLine()
+            meuJogo?.descricao = descricaoPersonalizada
+        } else {
+            meuJogo?.descricao = meuJogo?.titulo
+        }
+
+        println(meuJogo)
+    }
+
+    resultado.onSuccess {
+        println("Busca finalizada com sucesso.")
+    }
+
 }
