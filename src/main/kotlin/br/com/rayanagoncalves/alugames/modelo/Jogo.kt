@@ -1,5 +1,7 @@
+package br.com.rayanagoncalves.alugames.modelo
+
 data class Jogo(val titulo: String,
-           val capa: String) { // construtor
+                val capa: String) { // construtor
     var descricao:String? = null
 
     override fun toString(): String {
