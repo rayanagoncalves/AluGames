@@ -12,7 +12,6 @@ fun main() {
     gamer1.let { // scope function
         it.dataNascimento = "12/05/1999"
         it.usuario = "rayanacunha"
-        it.idInterno = "rayanacunha123"
     }
 
     println(gamer1)
