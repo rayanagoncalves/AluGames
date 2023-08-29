@@ -15,4 +15,6 @@ fun main() {
     }
 
     println(gamer1)
+    gamer1.usuario = "ray"
+    println(gamer1)
 }

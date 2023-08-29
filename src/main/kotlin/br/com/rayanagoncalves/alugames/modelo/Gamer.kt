@@ -5,7 +5,14 @@ import java.util.*
 data class Gamer(var nome: String, var email: String) {
     var dataNascimento: String? = null
     var usuario: String? = null
+        set(value) {
+            field = value // pega o value e seta no usuário
+            if(idInterno.isNullOrBlank()) {
+                criarIdInterno()
+            }
+        }
     var idInterno: String? = null
+        private set
 
     constructor(nome: String, email: String, dataNascimento: String, usuario: String):
             this(nome, email) {
