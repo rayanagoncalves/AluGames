@@ -1,5 +1,6 @@
 package br.com.rayanagoncalves.alugames.modelo
 
+import java.time.LocalDate
 import java.util.*
 
 data class Gamer(var nome: String, var email: String) {
@@ -50,8 +51,8 @@ data class Gamer(var nome: String, var email: String) {
        return email
     }
 
-    fun alugaJogo(jogo: Jogo): Aluguel {
-        return Aluguel(this, jogo)
+    fun alugaJogo(jogo: Jogo, dataInicial: LocalDate, dataFinal: LocalDate): Aluguel {
+        return Aluguel(this, jogo, dataInicial, dataInicial)
     }
 
     companion object { // alternativa para os métodos estáticos do java
