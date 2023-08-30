@@ -50,6 +50,10 @@ data class Gamer(var nome: String, var email: String) {
        return email
     }
 
+    fun alugaJogo(jogo: Jogo): Aluguel {
+        return Aluguel(this, jogo)
+    }
+
     companion object { // alternativa para os métodos estáticos do java
         fun criarGamer(leitura: Scanner): Gamer {
             println("Boas vindas ao AluGames! Vamos fazer seu cadastro. Digite seu nome: ")
