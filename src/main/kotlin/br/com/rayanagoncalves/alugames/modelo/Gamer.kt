@@ -51,11 +51,17 @@ data class Gamer(var nome: String, var email: String) {
        return email
     }
 
-    fun alugaJogo(jogo: Jogo, periodo: Periodo): Aluguel {
+    fun alugarJogo(jogo: Jogo, periodo: Periodo): Aluguel {
         val aluguel = Aluguel(this, jogo, periodo)
         jogosAlugados.add(aluguel)
 
         return aluguel
+    }
+
+    fun jogosDoMes(mes: Int): List<Jogo?> {
+        return jogosAlugados.filter {
+            it.periodo.dataInicial.monthValue == mes
+        }.map { aluguel -> aluguel.jogo}
     }
 
     companion object { // alternativa para os métodos estáticos do java
