@@ -30,7 +30,7 @@ fun main() {
     gamerCaroline.alugarJogo(jogoTheLastOfUs, periodo3)
     gamerCaroline.alugarJogo(jogoSpider, periodo4)
 
-    println(gamerCaroline.jogosDoMes(7))
+ //   println(gamerCaroline.jogosDoMes(7))
 
-   // println(gamerCaroline.jogosAlugados)
+    println(gamerCaroline.jogosAlugados)
 }
