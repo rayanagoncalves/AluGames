@@ -12,25 +12,24 @@ import java.net.http.HttpResponse
 
 class ConsumoApi {
 
-    fun buscaJogo(id: String): HttpResponse<String> {
-        val endereco = "https://www.cheapshark.com/api/1.0/games?id=$id"
+    private fun consomeDados(endereco: String): HttpResponse<String> {
         val client: HttpClient = HttpClient.newHttpClient()
         val request = HttpRequest.newBuilder()
             .uri(URI.create(endereco))
             .build()
 
-        return client
-            .send(request, HttpResponse.BodyHandlers.ofString())
+        return client.send(request, HttpResponse.BodyHandlers.ofString())
+    }
+
+    fun buscaJogo(id: String): HttpResponse<String> {
+        val endereco = "https://www.cheapshark.com/api/1.0/games?id=$id"
+
+        return consomeDados(endereco)
     }
 
     fun buscaGamers(): List<Gamer> {
         val endereco = "https://raw.githubusercontent.com/jeniblodev/arquivosJson/main/gamers.json"
-        val client: HttpClient = HttpClient.newHttpClient()
-        val request = HttpRequest.newBuilder()
-            .uri(URI.create(endereco))
-            .build()
-
-        val response = client.send(request, HttpResponse.BodyHandlers.ofString())
+        val response = consomeDados(endereco)
 
         val json = response.body()
 
