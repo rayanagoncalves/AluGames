@@ -44,4 +44,10 @@ fun main() {
     gamerCamila.alugarJogo(jogoTheLastOfUs, periodo3)
 
     println(gamerCamila.jogosAlugados)
+
+    gamerCamila.recomendar(7)
+    gamerCamila.recomendar(10)
+    gamerCamila.recomendar(8)
+
+    println(gamerCamila)
 }
