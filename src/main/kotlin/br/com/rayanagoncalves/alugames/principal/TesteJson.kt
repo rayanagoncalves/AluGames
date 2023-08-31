@@ -43,14 +43,25 @@ fun main() {
     gamerCamila.alugarJogo(jogoTheLastOfUs, periodo3)
     gamerCamila.alugarJogo(jogoTheLastOfUs, periodo3)
 
-    println(gamerCamila.jogosAlugados)
+ //   println(gamerCamila.jogosAlugados)
 
     gamerCamila.recomendar(7)
     gamerCamila.recomendar(10)
     gamerCamila.recomendar(8)
 
-    println(gamerCamila)
+   // println(gamerCamila)
 
     gamerCamila.alugarJogo(jogoResidenteVillage, periodo1)
-    println(gamerCamila.jogosAlugados)
+ //   println(gamerCamila.jogosAlugados)
+
+    gamerCamila.recomendarJogo(jogoResidenteVillage, 7)
+    gamerCamila.recomendarJogo(jogoTheLastOfUs, 10)
+
+    gamerCaroline.recomendarJogo(jogoResidenteVillage, 8)
+    gamerCaroline.recomendarJogo(jogoTheLastOfUs, 9)
+
+    println("Recomendações da Camila")
+    println(gamerCamila.jogosRecomendados)
+    println("Recomendações da Caroline")
+    println(gamerCaroline.jogosRecomendados)
 }
