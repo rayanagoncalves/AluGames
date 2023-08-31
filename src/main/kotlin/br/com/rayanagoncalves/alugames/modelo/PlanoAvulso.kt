@@ -1,5 +1,7 @@
 package br.com.rayanagoncalves.alugames.modelo
 
+import br.com.rayanagoncalves.alugames.utilitario.formatoComDuasCasasDecimais
+
 class PlanoAvulso(
     tipo: String): Plano(tipo) {
 
@@ -10,7 +12,7 @@ class PlanoAvulso(
             valorOriginal -= valorOriginal * 0.1
         }
 
-        return valorOriginal
+        return valorOriginal.formatoComDuasCasasDecimais()
     }
 
 }

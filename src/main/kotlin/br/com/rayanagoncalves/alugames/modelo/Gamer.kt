@@ -1,5 +1,6 @@
 package br.com.rayanagoncalves.alugames.modelo
 
+import br.com.rayanagoncalves.alugames.utilitario.formatoComDuasCasasDecimais
 import java.util.*
 
 data class Gamer(var nome: String, var email: String): Recomendavel {
@@ -20,7 +21,7 @@ data class Gamer(var nome: String, var email: String): Recomendavel {
     val jogosRecomendados = mutableListOf<Jogo>()
 
     override val media: Double
-        get() = listaNotas.average()
+        get() = listaNotas.average().formatoComDuasCasasDecimais()
 
     override fun recomendar(nota: Int) {
         if(!validarNota(nota)) {
